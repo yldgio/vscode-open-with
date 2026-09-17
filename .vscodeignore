@@ -10,6 +10,5 @@ GOAL.md
 CONTEXT.md
 AGENTS.md
 tsconfig.json
-release-please-config.json
-.release-please-manifest.json
+.releaserc.json
 **/*.map
