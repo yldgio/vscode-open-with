@@ -2,9 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run Extension",
+      "name": "Run Extension (Insiders)",
       "type": "extensionHost",
       "request": "launch",
+      "runtimeExecutable": "C:\\Program Files\\Microsoft VS Code Insiders\\Code - Insiders.exe",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "preLaunchTask": "npm: compile"
