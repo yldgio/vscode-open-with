@@ -1,7 +1,0 @@
-{
-  "release-type": "node",
-  "skip-github-pull-request": true,
-  "packages": {
-    ".": {}
-  }
-}
