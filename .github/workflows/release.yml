@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: write
-  pull-requests: read
+  pull-requests: write
 
 concurrency:
   group: release
@@ -22,7 +22,6 @@ jobs:
         id: release
         with:
           release-type: node
-          skip-github-pull-request: true
 
   vsix:
     needs: release-please
