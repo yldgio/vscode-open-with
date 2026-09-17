@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Verify tag matches package version
+        run: |
+          node -e "const v = process.env.GITHUB_REF_NAME.slice(1); if (v !== require('./package.json').version) { console.error('tag ' + process.env.GITHUB_REF_NAME + ' != package.json ' + require('./package.json').version); process.exit(1); }"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run compile
+
+      - name: Extract release notes from CHANGELOG
+        run: node scripts/extract-release-notes.js "${GITHUB_REF_NAME#v}" > release-notes.md
+
+      - name: Package VSIX
+        run: npm run package
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "${{ github.ref_name }}" open-with.vsix --title "Open With ${{ github.ref_name }}" --notes-file release-notes.md

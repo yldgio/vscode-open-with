@@ -1,11 +1,14 @@
 .vscode/**
+.github/**
 src/**
 test/**
 out/**
+scripts/**
 node_modules/**
 docs/**
 .gitignore
 GOAL.md
 CONTEXT.md
 AGENTS.md
-*.map
+tsconfig.json
+**/*.map

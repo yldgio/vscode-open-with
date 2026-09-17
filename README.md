@@ -1,8 +1,19 @@
 # Open With
 
+[![CI](https://github.com/yldgio/vscode-open-with/actions/workflows/ci.yml/badge.svg)](https://github.com/yldgio/vscode-open-with/actions/workflows/ci.yml)
+
 Run named, user-configured terminal commands from an Explorer folder's right-click
 menu: launch Copilot CLI (`copilot --yolo`), Codex, or any other CLI in a new
 editor-area terminal with the clicked folder as its working directory.
+
+## Install
+
+Download `open-with.vsix` from the
+[latest release](https://github.com/yldgio/vscode-open-with/releases/latest), then
+either:
+
+- Extensions view → `…` → **Install from VSIX…**, or
+- `code-insiders --install-extension open-with.vsix`
 
 ## Usage
 
