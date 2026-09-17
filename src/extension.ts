@@ -42,9 +42,6 @@ async function openWith(uri?: vscode.Uri): Promise<void> {
   const { valid, invalid } = readLaunchers();
   notifyInvalid(invalid);
   if (valid.length === 0) {
-    if (invalid.length === 0) {
-      void vscode.window.showInformationMessage('Open With: no launchers configured. Add entries to openWith.launchers.');
-    }
     return;
   }
   const picked = await vscode.window.showQuickPick(
