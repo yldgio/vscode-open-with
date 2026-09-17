@@ -1,9 +1,31 @@
 {
   "name": "open-with",
   "displayName": "Open With",
-  "description": "Run named, user-configured terminal commands from an Explorer folder's right-click menu.",
+  "description": "Run named, user-configured terminal commands from any folder's right-click menu — each in a new editor-area terminal.",
   "version": "0.0.1",
   "publisher": "open-with",
+  "license": "MIT",
+  "author": {
+    "name": "yldgio",
+    "url": "https://github.com/yldgio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yldgio/vscode-open-with"
+  },
+  "bugs": {
+    "url": "https://github.com/yldgio/vscode-open-with/issues"
+  },
+  "homepage": "https://github.com/yldgio/vscode-open-with#readme",
+  "keywords": [
+    "terminal",
+    "launcher",
+    "explorer",
+    "context-menu",
+    "copilot",
+    "codex",
+    "cli"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },
