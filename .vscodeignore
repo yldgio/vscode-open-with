@@ -3,7 +3,6 @@
 src/**
 test/**
 out/**
-scripts/**
 node_modules/**
 docs/**
 .gitignore
@@ -11,4 +10,6 @@ GOAL.md
 CONTEXT.md
 AGENTS.md
 tsconfig.json
+release-please-config.json
+.release-please-manifest.json
 **/*.map
