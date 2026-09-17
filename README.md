@@ -17,24 +17,34 @@ either:
 
 ## Usage
 
-1. Configure launchers (Settings UI grid or `settings.json`):
+**1. Add a launcher.** Open Settings (`Ctrl+,`), search for `open with`, and under
+**Open With: Launchers** click **Add Item**. *Item* is the name shown in the menu,
+*Value* is the command to run:
 
-   ```jsonc
-   {
-     "openWith.launchers": {
-       "Copilot": "copilot",
-       "Copilot YOLO": "copilot --yolo"
-     }
-   }
-   ```
+![The openWith.launchers setting as an editable name → command grid in the Settings UI](docs/images/settings-launchers.png)
 
-   Workspace values merge with User values by name; a Workspace entry overrides a
-   User entry with the same name.
+Prefer JSON? The same thing in `settings.json`:
 
-2. Right-click a folder in the Explorer (workspace roots included) and choose
-   **Open With…**, then pick a launcher. A new terminal opens in the editor area,
-   named after the launcher, with the folder as its working directory, and the
-   command runs.
+```jsonc
+{
+  "openWith.launchers": {
+    "Copilot": "copilot",
+    "Copilot YOLO": "copilot --yolo"
+  }
+}
+```
+
+**2. Run it.** Right-click a folder in the Explorer (workspace roots work too) →
+**Open With…** → pick the launcher. A new terminal opens in the editor area, named
+after the launcher, with the folder as its working directory, running the command.
+
+**Notes**
+
+- Workspace settings add to User settings; a Workspace entry overrides a User entry
+  with the same name.
+- Entries with a blank name or command show an error and are skipped — the rest keep
+  working.
+- The **Open With…** menu item only appears when at least one valid launcher exists.
 
 Invalid launcher entries (blank name, missing or blank command) produce an explicit
 error; valid entries keep working. The menu item hides when no valid launcher exists.
