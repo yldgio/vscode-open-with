@@ -2,7 +2,7 @@
   "name": "open-with",
   "displayName": "Open With",
   "description": "Run named, user-configured terminal commands from any folder's right-click menu — each in a new editor-area terminal.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "open-with",
   "license": "MIT",
   "author": {
