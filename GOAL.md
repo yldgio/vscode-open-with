@@ -37,8 +37,9 @@ environment, not a hard requirement.
 - Invalid launcher configuration (blank name, missing/blank command) produces one
   clear error notification listing the offending names — on activation, on
   configuration change, and again on invocation — while valid launchers keep working.
-- In untrusted workspaces, Workspace-scope launchers are ignored (enforced by VS Code
-  via `restrictedConfigurations`); User-scope launchers remain available.
+- In untrusted workspaces, Workspace-scope launchers and shell override values are
+  ignored (enforced by VS Code via `restrictedConfigurations`); User-scope values
+  remain available.
 
 ## Boundaries
 

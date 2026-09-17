@@ -36,7 +36,8 @@ error; valid entries keep working. The menu item hides when no valid launcher ex
 | `openWith.shellPath` | Optional shell executable replacing the default shell profile. |
 | `openWith.shellArgs` | Optional arguments for `openWith.shellPath`. |
 
-In untrusted workspaces, Workspace-scope launchers are ignored (enforced by VS Code).
+In untrusted workspaces, Workspace-scope launchers and shell override values are
+ignored (enforced by VS Code).
 
 ## Development
 

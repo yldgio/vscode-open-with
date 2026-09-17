@@ -19,7 +19,9 @@
       "supported": "limited",
       "description": "Workspace-level launchers are ignored in untrusted workspaces; user-level launchers keep working.",
       "restrictedConfigurations": [
-        "openWith.launchers"
+        "openWith.launchers",
+        "openWith.shellPath",
+        "openWith.shellArgs"
       ]
     }
   },
