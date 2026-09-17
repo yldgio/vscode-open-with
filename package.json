@@ -1,0 +1,101 @@
+{
+  "name": "open-with",
+  "displayName": "Open With",
+  "description": "Run named, user-configured terminal commands from an Explorer folder's right-click menu.",
+  "version": "0.0.1",
+  "publisher": "open-with",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Workspace-level launchers are ignored in untrusted workspaces; user-level launchers keep working.",
+      "restrictedConfigurations": [
+        "openWith.launchers"
+      ]
+    }
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Open With",
+      "properties": {
+        "openWith.launchers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "scope": "window",
+          "markdownDescription": "Named terminal commands shown in the **Open With…** picker: key = launcher name, value = command text (e.g. `\"Copilot YOLO\": \"copilot --yolo\"`). Workspace entries override User entries with the same name."
+        },
+        "openWith.shellPath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "scope": "machine-overridable",
+          "markdownDescription": "Executable used for launcher terminals instead of the default shell profile (see `#openWith.shellArgs#`)."
+        },
+        "openWith.shellArgs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "machine-overridable",
+          "markdownDescription": "Arguments passed to `#openWith.shellPath#`."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "openWith.openWith",
+        "title": "Open With…"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "openWith.openWith",
+          "when": "explorerResourceIsFolder && openWith.hasLaunchers",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "openWith.openWith",
+          "when": "false"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "watch": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap --watch",
+    "build-tests": "tsc -p .",
+    "typecheck": "tsc -p . --noEmit",
+    "test:unit": "npm run build-tests && node --test \"out/test/unit/*.test.js\"",
+    "test:integration": "npm run compile && npm run build-tests && node out/test/integration/runTests.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.20.3",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.28.2",
+    "mocha": "^12.0.2",
+    "typescript": "^7.0.2"
+  }
+}
