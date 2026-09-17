@@ -35,8 +35,16 @@ Prefer JSON? The same thing in `settings.json`:
 ```
 
 **2. Run it.** Right-click a folder in the Explorer (workspace roots work too) →
-**Open With…** → pick the launcher. A new terminal opens in the editor area, named
-after the launcher, with the folder as its working directory, running the command.
+**Open With…**:
+
+![An Explorer folder's context menu with Open With… at the top](docs/images/context-menu.png)
+
+…then pick the launcher by name (the command it runs is shown underneath):
+
+![The Open With picker listing the configured launchers](docs/images/picker.png)
+
+A new terminal opens in the editor area, named after the launcher, with the folder
+as its working directory, running the command.
 
 **Notes**
 
